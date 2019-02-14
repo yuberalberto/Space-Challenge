@@ -8,18 +8,15 @@ import java.util.Scanner;
 /**
  * Created by ralphemerson on 11/23/2017.
  */
-public class Simulation {
+class Simulation {
     private ArrayList<Item> items;
-    private ArrayList<Rocket> rocketU1;
-    private ArrayList<Rocket> rocketU2;
-    private boolean hasLanded = true;
     private File phase1 = new File("phase-1.txt");
     private File phase2 = new File("phase-2.txt");
 
-    public Simulation() {
+    Simulation() {
     }
 
-    public ArrayList<Item> loadItems(int phase) throws FileNotFoundException {
+    ArrayList<Item> loadItems(int phase) throws FileNotFoundException {
 
         if (phase == 1) {
             System.out.println("Loading phase 1");
@@ -34,7 +31,7 @@ public class Simulation {
         return items;
     }
 
-    public void loadPerPhaseItems(File file) throws FileNotFoundException {
+    private void loadPerPhaseItems(File file) throws FileNotFoundException {
         items = new ArrayList<>();
         Scanner fileScanner = new Scanner(file);
 
@@ -47,9 +44,9 @@ public class Simulation {
         }
     }
 
-    public ArrayList<Rocket> loadU1(List<Item> itemsU1) {
+    ArrayList<Rocket> loadU1(List<Item> itemsU1) {
         System.out.println("loading U1...");
-        rocketU1 = new ArrayList<>();
+        ArrayList<Rocket> rocketU1 = new ArrayList<>();
         Rocket rocket = new U1();
         Iterator iterator = itemsU1.iterator();
 
@@ -71,9 +68,9 @@ public class Simulation {
         return rocketU1;
     }
 
-    public ArrayList<Rocket> loadU2(ArrayList<Item> itemsU2) {
+    ArrayList<Rocket> loadU2(ArrayList<Item> itemsU2) {
         System.out.println("loading U2");
-        rocketU2 = new ArrayList<>();
+        ArrayList<Rocket> rocketU2 = new ArrayList<>();
         Rocket rocket = new U2();
         Iterator iterator = itemsU2.iterator();
 
@@ -139,6 +136,6 @@ public class Simulation {
             counter++;
             U2.setRocketU2Counter(counter);
         }
-        hasLanded = false;
+        boolean hasLanded = false;
     }
 }
