@@ -95,7 +95,7 @@ public class Simulation {
         return rocketU2;
     }
 
-    public void runSimulation(ArrayList<Rocket> rockets, int i) {
+    void runSimulation(ArrayList<Rocket> rockets, int i) {
 
         for (Rocket rocket : rockets) {
 
@@ -113,7 +113,7 @@ public class Simulation {
         }
     }
 
-    public void launchSimulation(int i) {
+    private void launchSimulation(int i) {
 
         if (i == 1) {
             int counter1 = U1.getRocketU1Counter();
@@ -128,7 +128,7 @@ public class Simulation {
         }
     }
 
-    public void landSimulation(int i) {
+    private void landSimulation(int i) {
         if (i == 1) {
             int counter = U1.getRocketU1Counter();
             counter++;

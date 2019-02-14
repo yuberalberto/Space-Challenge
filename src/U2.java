@@ -7,17 +7,15 @@ public class U2 extends Rocket {
     private static int rocketU2Counter;
     private final int maxCargo = 11000;
     private static final int cost = 120000000;
-    private final int weight = 18000;
-    private double chanceLaunched;
-    private double chanceLanded;
 
-    public U2() {
+    U2() {
         this(0);
     }
 
-    public U2(int lastWeight) {
+    private U2(int lastWeight) {
         setMaxCargo(maxCargo);
         setCost(cost);
+        int weight = 18000;
         setWeight(weight);
         setCurrentWeight(lastWeight);
 
@@ -26,11 +24,11 @@ public class U2 extends Rocket {
     }
 
 
-    public static int getRocketU2Counter() {
+    static int getRocketU2Counter() {
         return rocketU2Counter;
     }
 
-    public static void setRocketU2Counter(int rocketU2Counter) {
+    static void setRocketU2Counter(int rocketU2Counter) {
         U2.rocketU2Counter = rocketU2Counter;
     }
 
@@ -39,7 +37,7 @@ public class U2 extends Rocket {
         System.out.println("\nLAUNCHING...");
         Random randomNumber = new Random();
         double rand = randomNumber.nextDouble();
-        chanceLaunched = 0.04 * (getTotalWeight() / getMaxCargo());
+        double chanceLaunched = 0.04 * (getTotalWeight() / getMaxCargo());
 
         System.out.println("Cargo: " + getCurrentWeight());
         if (chanceLaunched >= rand) {
@@ -57,7 +55,7 @@ public class U2 extends Rocket {
         System.out.println("\nLANDING...");
         Random randomNumber = new Random();
         double rand = randomNumber.nextDouble();
-        chanceLanded = 0.08 * (getTotalWeight() / maxCargo);
+        double chanceLanded = 0.08 * (getTotalWeight() / maxCargo);
 
         if (chanceLanded >= rand) {
             System.out.println("U2 Crashed!!");
@@ -69,7 +67,7 @@ public class U2 extends Rocket {
         }
     }
 
-    public static long getTotalCost() {
+    static long getTotalCost() {
         return (long) getRocketU2Counter() * cost;
     }
 }

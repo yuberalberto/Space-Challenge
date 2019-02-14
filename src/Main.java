@@ -66,7 +66,7 @@ public class Main {
 
     }
 
-    public static long totalCost(int i) {
+    private static long totalCost(int i) {
         return (i == 1) ? U1.getTotalCost() : U2.getTotalCost();
     }
 }
